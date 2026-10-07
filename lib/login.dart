@@ -19,15 +19,15 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Color.fromARGB(245, 175, 144, 550),
       ),
 
-      backgroundColor: Color.fromARGB(245, 175, 144, 233),
+      backgroundColor: Color.fromARGB(245, 175, 144, 550),
 
       body: Column(
         children: [
           Center(
             child: Image(
               image: AssetImage('asset/logo.png'),
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
             ),
           ),
 
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 300,
               child: TextFormField(
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(245, 175, 144, 550),
+                  fillColor: Color.fromARGB(245, 248, 247, 252),
                   hintText: 'Masukan Username',
                   filled: true,
                   border: OutlineInputBorder(
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 300,
               child: TextFormField(
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(255, 87, 120, 226),
+                  fillColor: Color.fromARGB(245, 248, 247, 252),
                   hintText: 'Masukan Password',
                   filled: true,
                   border: OutlineInputBorder(
