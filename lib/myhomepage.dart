@@ -12,7 +12,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Jadwal Pelajaran")),
-      backgroundColor: Color.fromARGB(255,255, 255, 255),
+      backgroundColor: Color.fromARGB(255,255,255,255),
     );
   }
 }
