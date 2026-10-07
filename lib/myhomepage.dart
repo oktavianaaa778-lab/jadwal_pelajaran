@@ -8,59 +8,82 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // Pembuatan Variabel Yang Akan Dipakai
   TextEditingController inputNama = TextEditingController();
+
+  @override
+  void dispose() {
+    inputNama.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Nama App Kalian"),
-        backgroundColor: Color.fromARGB(255, 50, 145, 145),
+        title: const Text("Nama App Kalian"),
+        backgroundColor: const Color.fromARGB(
+          255,
+          50,
+          145,
+          145,
+        ),
       ),
-      // Color.fromARGB(opacity, red, green, blue)
-      backgroundColor: Color.fromARGB(245, 124, 86, 196),
+
+      backgroundColor: const Color.fromARGB(
+        245,
+        124,
+        86,
+        196,
+      ),
+
       body: Column(
         children: [
+          const SizedBox(height: 30),
+
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300,
               child: TextFormField(
-                // Dekorasi untuk TextFormField
-                decoration: InputDecoration(
-                  fillColor: const Color.fromARGB(255, 175, 101, 197),
+                controller: inputNama,
+
+                decoration: const InputDecoration(
+                  fillColor: Color.fromARGB(
+                    255,
+                    175,
+                    101,
+                    197,
+                  ),
                   hintText: 'Masukan Nama Kamu',
                   filled: true,
+
+                  prefixIcon: Icon(Icons.person),
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(40),
                     ),
                   ),
                 ),
-
-                // controller untuk ...
-                controller: inputNama,
-
-                // Ketika Dikirim nanti
-                onFieldSubmitted: (values) {
-                  // isi blablabla ...
-                  inputNama.text = values;
-                },
               ),
             ),
           ),
 
-          // untuk kasih jarak antar widget
-          Padding(
-            padding: EdgeInsets.all(16),
-          ),
+          const SizedBox(height: 20),
 
-          // Tombol
-          ElevatedButton(
-            child: Text("Tampilkan Nama"),
+          ElevatedButton.icon(
             onPressed: () {
               print(inputNama.text);
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    "Halo ${inputNama.text}!",
+                  ),
+                ),
+              );
             },
+            icon: const Icon(Icons.visibility),
+            label: const Text("Tampilkan Nama"),
           ),
         ],
       ),

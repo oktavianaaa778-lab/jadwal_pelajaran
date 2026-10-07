@@ -12,74 +12,137 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController inputPassword = TextEditingController();
 
   @override
+  void dispose() {
+    inputUsername.dispose();
+    inputPassword.dispose();
+    super.dispose();
+  }
+
+  void login() {
+    String username = inputUsername.text.trim();
+    String password = inputPassword.text;
+
+    // Username / password kosong
+    if (username.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Username dan password tidak boleh kosong!"),
+        ),
+      );
+      return;
+    }
+
+    // Username dan password benar
+    if (username == "admin" && password == "12345") {
+      Navigator.pushReplacementNamed(context, "/home");
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Username atau password salah!"),
+        ),
+      );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
-        backgroundColor: Color.fromARGB(245, 198, 166, 216),
+        title: const Text("Login"),
+        backgroundColor: const Color.fromARGB(245, 198, 166, 216),
       ),
 
-      backgroundColor: Color.fromARGB(245, 198, 166, 216),
+      backgroundColor: const Color.fromARGB(245, 198, 166, 216),
 
-      body: Column(
-        children: [
-          Center(
-            child: Image(
-              image: AssetImage('asset/logo.png'),
-              width: 300,
-              height: 300,
-            ),
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
 
-          Padding(padding: EdgeInsets.all(16)),
-
-          Center(
-            child: Container(
-              width: 300,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  fillColor: Color.fromARGB(245, 248, 247, 252),
-                  hintText: 'Masukan Username',
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                  ),
-                ),
-                controller: inputUsername,
+            Center(
+              child: Image(
+                image: const AssetImage('asset/logo.png'),
+                width: 300,
+                height: 250,
               ),
             ),
-          ),
 
-          Padding(padding: EdgeInsets.all(16)),
+            const SizedBox(height: 20),
 
-          Center(
-            child: Container(
-              width: 300,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  fillColor: Color.fromARGB(245, 248, 247, 252),
-                  hintText: 'Masukan Password',
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
+            // USERNAME
+            Center(
+              child: SizedBox(
+                width: 300,
+                child: TextFormField(
+                  controller: inputUsername,
+
+                  decoration: InputDecoration(
+                    fillColor: const Color.fromARGB(
+                      245,
+                      248,
+                      247,
+                      252,
+                    ),
+                    filled: true,
+
+                    hintText: 'Masukan Username',
+
+                    prefixIcon: const Icon(Icons.person),
+
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                    ),
                   ),
                 ),
-                controller: inputPassword,
-                obscureText: true,
               ),
             ),
-          ),
 
-          Padding(padding: EdgeInsets.all(16)),
+            const SizedBox(height: 20),
 
-          ElevatedButton(
-            child: Text("Login"),
-            onPressed: () {
-              print(inputUsername.text);
-              print(inputPassword.text);
-            },
-          ),
-        ],
+            // PASSWORD
+            Center(
+              child: SizedBox(
+                width: 300,
+                child: TextFormField(
+                  controller: inputPassword,
+
+                  obscureText: true,
+
+                  decoration: InputDecoration(
+                    fillColor: const Color.fromARGB(
+                      245,
+                      248,
+                      247,
+                      252,
+                    ),
+                    filled: true,
+
+                    hintText: 'Masukan Password',
+
+                    prefixIcon: const Icon(Icons.lock),
+
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 25),
+
+            // TOMBOL LOGIN
+            ElevatedButton.icon(
+              onPressed: login,
+              icon: const Icon(Icons.login),
+              label: const Text("Login"),
+            ),
+          ],
+        ),
       ),
     );
   }
