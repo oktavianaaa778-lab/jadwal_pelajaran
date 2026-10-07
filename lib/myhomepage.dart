@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color.fromARGB(255, 50, 145, 145),
       ),
       // Color.fromARGB(opacity, red, green, blue)
-      backgroundColor: Color.fromARGB(245, 19, 222, 124),
+      backgroundColor: Color.fromARGB(245, 124, 86, 196),
       body: Column(
         children: [
           Center(
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 // Dekorasi untuk TextFormField
                 decoration: InputDecoration(
-                  fillColor: Colors.orange,
+                  fillColor: const Color.fromARGB(255, 175, 101, 197),
                   hintText: 'Masukan Nama Kamu',
                   filled: true,
                   border: OutlineInputBorder(
