@@ -8,50 +8,75 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Controller untuk input nama
   TextEditingController inputNama = TextEditingController();
 
   @override
   void dispose() {
+    // Menghapus controller ketika halaman ditutup
     inputNama.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // AppBar halaman Home
       appBar: AppBar(
-        title: const Text("Jadwal Pelajaran"),
-        backgroundColor: const Color.fromARGB(245, 198, 166, 216
-         
+        title: const Text(
+          "Nama App Kalian",
+        ),
+
+        backgroundColor: const Color.fromARGB(
+          255,
+          50,
+          145,
+          145,
         ),
       ),
 
-      backgroundColor: const Color.fromARGB(245, 198, 166, 216
-       
+      // Background halaman Home
+      backgroundColor: const Color.fromARGB(
+        245,
+        124,
+        86,
+        196,
       ),
 
       body: Column(
         children: [
+          // Jarak bagian atas
           const SizedBox(height: 30),
 
+          // Input nama
           Center(
             child: SizedBox(
               width: 300,
+
               child: TextFormField(
+                // Controller input nama
                 controller: inputNama,
 
+                // Dekorasi input
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(245,
-                      248,
-                      247,
-                      252,
-                    
+                  fillColor: Color.fromARGB(
+                    255,
+                    175,
+                    101,
+                    197,
                   ),
-                  hintText: 'Masukan Nama Kamu',
+
                   filled: true,
 
-                  prefixIcon: Icon(Icons.person),
+                  hintText: 'Masukan Nama Kamu',
 
+                  // Icon nama
+                  prefixIcon: Icon(
+                    Icons.person,
+                  ),
+
+                  // Bentuk kotak input
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(40),
@@ -62,12 +87,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
+          // Jarak antara input dan tombol
           const SizedBox(height: 20),
 
+          // Tombol Tampilkan Nama
           ElevatedButton.icon(
             onPressed: () {
+              // Menampilkan nama di console
               print(inputNama.text);
 
+              // Menampilkan pesan di aplikasi
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
@@ -76,8 +105,43 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               );
             },
-            icon: const Icon(Icons.visibility),
-            label: const Text("Tampilkan Nama"),
+
+            // Icon tombol
+            icon: const Icon(
+              Icons.visibility,
+            ),
+
+            // Tulisan tombol
+            label: const Text(
+              "Tampilkan Nama",
+            ),
+          ),
+
+          // Jarak sebelum tombol Logout
+          const SizedBox(height: 20),
+
+          // Tombol Logout
+          ElevatedButton.icon(
+            onPressed: () {
+              // Kembali ke Login
+              // Semua halaman sebelumnya dihapus
+              // sehingga tidak bisa kembali ke Home
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/",
+                (route) => false,
+              );
+            },
+
+            // Icon logout
+            icon: const Icon(
+              Icons.logout,
+            ),
+
+            // Tulisan tombol
+            label: const Text(
+              "Logout",
+            ),
           ),
         ],
       ),
