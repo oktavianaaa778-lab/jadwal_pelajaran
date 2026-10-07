@@ -13,6 +13,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text("Jadwal Pelajaran")),
       backgroundColor: Color.fromARGB(255,255,255,255),
+      body:Column(
+        children: [
+          
+
+      ],)
     );
   }
 }
