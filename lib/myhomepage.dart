@@ -21,19 +21,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Jadwal Pelajaran"),
-        backgroundColor: const Color.fromARGB(
-          255,
-          50,
-          145,
-          145,
+        backgroundColor: const Color.fromARGB(245, 198, 166, 216
+         
         ),
       ),
 
-      backgroundColor: const Color.fromARGB(
-        245,
-        124,
-        86,
-        196,
+      backgroundColor: const Color.fromARGB(245, 198, 166, 216
+       
       ),
 
       body: Column(
@@ -47,11 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 controller: inputNama,
 
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(
-                    255,
-                    175,
-                    101,
-                    197,
+                  fillColor: Color.fromARGB(245,
+                      248,
+                      247,
+                      252,
+                    
                   ),
                   hintText: 'Masukan Nama Kamu',
                   filled: true,
