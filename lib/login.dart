@@ -23,6 +23,14 @@ class _LoginPageState extends State<LoginPage> {
 
       body: Column(
         children: [
+          Center(
+            child: Image(
+              image: AssetImage('asset/images/logo.png'),
+              width: 100,
+              height: 100,
+            ),
+          ),
+
           Padding(padding: EdgeInsets.all(16)),
 
           Center(
