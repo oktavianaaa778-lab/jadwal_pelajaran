@@ -19,7 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Center(
             child: Container(
               width: 300,
-              color: Color.fromARGB(255, 59, 199, 199),
+              color: Color.fromARGB(21, 148, 161, 1),
+
               
             ),
           )
