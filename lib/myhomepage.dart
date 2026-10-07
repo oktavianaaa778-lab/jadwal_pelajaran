@@ -16,6 +16,13 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Color.fromARGB(255,255,255,255),
       body:Column(
         children: [
+          Center(
+            child: Container(
+              width: 300,
+              color: Color.fromARGB(21,147,161,)
+              
+            ),
+          )
           
       ],)
     );
