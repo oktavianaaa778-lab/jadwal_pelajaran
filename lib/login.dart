@@ -16,18 +16,18 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
-        backgroundColor: Color.fromARGB(0, 50, 145, 145),
+        backgroundColor: Color.fromARGB(245, 175, 144, 550),
       ),
 
-      backgroundColor: Color.fromARGB(245, 255, 253, 255),
+      backgroundColor: Color.fromARGB(245, 175, 144, 233),
 
       body: Column(
         children: [
           Center(
             child: Image(
               image: AssetImage('asset/logo.png'),
-              width: 100,
-              height: 100,
+              width: 200,
+              height: 200,
             ),
           ),
 
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 300,
               child: TextFormField(
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(255, 37, 124, 158),
+                  fillColor: Color.fromARGB(245, 175, 144, 550),
                   hintText: 'Masukan Username',
                   filled: true,
                   border: OutlineInputBorder(
